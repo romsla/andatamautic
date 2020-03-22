@@ -1,0 +1,8 @@
+form,label,showLabel,alias,type,isCustom,customParameters,defaultValue,isRequired,validationMessage,helpMessage,order,properties,labelAttr,inputAttr,leadField
+1,Имя,1,f_name,text,0,a:0:{},NULL,0,NULL,NULL,1,"a:1:{s:11:\"placeholder\";N;}",NULL,NULL,firstname
+1,Email,1,f_email,email,0,a:0:{},NULL,0,NULL,NULL,2,"a:1:{s:11:\"placeholder\";N;}",NULL,NULL,email
+1,Телефон,1,f_phone,tel,0,a:0:{},NULL,0,NULL,NULL,3,"a:1:{s:11:\"placeholder\";N;}",NULL,NULL,phone
+1,URL,1,f_url,hidden,0,a:0:{},NULL,1,NULL,NULL,5,"a:1:{s:11:\"placeholder\";N;}",NULL,NULL
+1,Время пользователя,1,f_usertime,hidden,0,a:0:{},NULL,1,NULL,NULL,6,"a:1:{s:11:\"placeholder\";N;}",NULL,NULL
+1,Профиль в Mautic,1,f_profile,hidden,0,a:0:{},1,1,NULL,NULL,3,"a:1:{s:11:\"placeholder\";N;}",NULL,NULL
+1,Submit,1,submit,button,0,a:0:{},NULL,0,NULL,NULL,4,"a:1:{s:4:\"type\";s:6:\"submit\";}",NULL,NULL
