@@ -57,6 +57,9 @@ RUN curl -o mautic.zip -SL https://github.com/mautic/mautic/releases/download/${
     && rm mautic.zip \
     && chown -R www-data:www-data /usr/src/mautic
 
+COPY index.php /usr/src/mautic/
+RUN chown -R www-data:www-data /usr/src/mautic/index.php
+
 # Copy init scripts and custom .htaccess
 COPY docker-entrypoint.sh /entrypoint.sh
 COPY makeconfig.php /makeconfig.php
