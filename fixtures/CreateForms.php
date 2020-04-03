@@ -72,7 +72,7 @@ class CreateForms extends AbstractFixture implements OrderedFixtureInterface, Co
         }
 
         //import fields
-        $fields = CsvHelper::csv_to_array(__DIR__.'/forms_fielddata.csv');
+        $fields = CsvHelper::csv_to_array(__DIR__.'/form_fields.csv');
         $repo   = $this->container->get('mautic.form.model.field')->getRepository();
         foreach ($fields as $count => $rows) {
             $field = new Field();
@@ -94,32 +94,7 @@ class CreateForms extends AbstractFixture implements OrderedFixtureInterface, Co
             }
             $repo->saveEntity($field);
         }
-
-        //import actions
-        $actions = CsvHelper::csv_to_array(__DIR__.'/fakeactiondata.csv');
-        $repo    = $this->container->get('mautic.form.model.action')->getRepository();
-        foreach ($actions as $count => $rows) {
-            $action = new Action();
-            foreach ($rows as $col => $val) {
-                if ($val != 'NULL') {
-                    $setter = 'set'.ucfirst($col);
-
-                    if (in_array($col, ['form'])) {
-                        $action->$setter($this->getReference('form-'.$val));
-                    } elseif (in_array($col, ['properties'])) {
-                        $val = Serializer::decode(stripslashes($val));
-                        if ($col == 'settings') {
-                            $val['callback'] = stripslashes($val['callback']);
-                        }
-
-                        $action->$setter($val);
-                    } else {
-                        $action->$setter($val);
-                    }
-                }
-            }
-            $repo->saveEntity($action);
-        }
+       
 
         //create the tables
         foreach ($formEntities as $form) {
@@ -136,6 +111,6 @@ class CreateForms extends AbstractFixture implements OrderedFixtureInterface, Co
      */
     public function getOrder()
     {
-        return 8;
+        return 2;
     }
 }

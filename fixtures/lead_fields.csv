@@ -1,5 +1,0 @@
-alias,group,isRequired,type,object,isUniqueIdentifer,isFixed,isListable,isShortVisible,default
-yandexid,Core,No,Text,Contact,Yes,Yes,Yes,Yes,
-googleid,Core,No,Text,Contact,Yes,Yes,Yes,Yes,
-facebookid,Core,No,Text,Contact,Yes,Yes,Yes,Yes,
-
