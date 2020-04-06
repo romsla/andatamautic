@@ -33,9 +33,12 @@ services:
       - MAUTIC_MAILER_HOST=localhost
       - MAUTIC_MAILER_FROM_EMAIL=local@localhost
       - MAUTIC_ADMIN_PASSWORD=mautic123
+#      - MAUTIC_SECURE_MTCJS=true
       - MAUTIC_MODE=docker
     networks:
       - mautic-net
+#    volumes: 
+#      - "C:/projects/temp/mautic:/var/www/html"
 
 volumes:
   mysql_data:

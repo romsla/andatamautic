@@ -60,6 +60,18 @@ RUN curl -o mautic.zip -SL https://github.com/mautic/mautic/releases/download/${
 COPY index.php /usr/src/mautic/
 RUN chown -R www-data:www-data /usr/src/mautic/index.php
 
+COPY secure/CoreBundle/BuildJsSubscriber.php /usr/src/mautic/app/bundles/CoreBundle/EventListener/BuildJsSubscriber.php
+RUN chown -R www-data:www-data /usr/src/mautic/app/bundles/CoreBundle/EventListener/BuildJsSubscriber.php
+
+COPY secure/DynamicContentBundle/BuildJsSubscriber.php /usr/src/mautic/app/bundles/DynamicContentBundle/EventListener/BuildJsSubscriber.php
+RUN chown -R www-data:www-data /usr/src/mautic/app/bundles/DynamicContentBundle/EventListener/BuildJsSubscriber.php
+
+COPY secure/NotificationBundle/BuildJsSubscriber.php /usr/src/mautic/app/bundles/NotificationBundle/EventListener/BuildJsSubscriber.php
+RUN chown -R www-data:www-data /usr/src/mautic/app/bundles/NotificationBundle/EventListener/BuildJsSubscriber.php
+
+COPY secure/PageBundle/BuildJsSubscriber.php /usr/src/mautic/app/bundles/PageBundle/EventListener/BuildJsSubscriber.php
+RUN chown -R www-data:www-data /usr/src/mautic/app/bundles/PageBundle/EventListener/BuildJsSubscriber.php
+
 # Copy init scripts and custom .htaccess
 COPY docker-entrypoint.sh /entrypoint.sh
 COPY makeconfig.php /makeconfig.php
