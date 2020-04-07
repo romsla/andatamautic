@@ -72,6 +72,9 @@ RUN chown -R www-data:www-data /usr/src/mautic/app/bundles/NotificationBundle/Ev
 COPY secure/PageBundle/BuildJsSubscriber.php /usr/src/mautic/app/bundles/PageBundle/EventListener/BuildJsSubscriber.php
 RUN chown -R www-data:www-data /usr/src/mautic/app/bundles/PageBundle/EventListener/BuildJsSubscriber.php
 
+COPY maxmind/MaxmindDownloadLookup.php /usr/src/mautic/app/bundles/CoreBundle/IpLookup/MaxmindDownloadLookup.php
+RUN chown -R www-data:www-data /usr/src/mautic/app/bundles/CoreBundle/IpLookup/MaxmindDownloadLookup.php
+
 # Copy init scripts and custom .htaccess
 COPY docker-entrypoint.sh /entrypoint.sh
 COPY makeconfig.php /makeconfig.php
